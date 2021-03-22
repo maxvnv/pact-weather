@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pact-weather</artifactId>
+        <groupId>com.max.pact</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>weather-sensor</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit5</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>4.2.2</version>
+                <configuration>
+                    <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
+                    <tags>
+                        <tag>master</tag>
+                        <tag>customtag</tag>
+                    </tags>
+                    <pactDirectory>${project.build.directory}/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+                    <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
