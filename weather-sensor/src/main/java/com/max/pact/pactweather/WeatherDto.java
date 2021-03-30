@@ -1,4 +1,4 @@
-package com.max.pact.weather;
+package com.max.pact.pactweather;
 
 import lombok.Builder;
 import lombok.Value;

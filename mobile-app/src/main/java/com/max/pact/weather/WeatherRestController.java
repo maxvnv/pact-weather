@@ -12,7 +12,7 @@ public class WeatherRestController {
     @Autowired
     private WeatherServiceDao weatherServiceDao;
 
-    @GetMapping("status")
+    @GetMapping
     public WeatherDto getWeather() {
         return weatherServiceDao.getWeather();
     }

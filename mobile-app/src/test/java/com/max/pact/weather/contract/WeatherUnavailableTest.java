@@ -21,7 +21,7 @@ public class WeatherUnavailableTest extends AbstractPactTest {
         return builder
                 .given("Weather for today is unavailable")
                 .uponReceiving("A request for weather with no request parameter")
-                .path("/weather/status")
+                .path("/weather")
                 .method("GET")
                 .willRespondWith()
                 .status(404)
@@ -31,7 +31,7 @@ public class WeatherUnavailableTest extends AbstractPactTest {
 
     @Test
     void shouldRespondWith404WhenWeatherIsUnavailable(MockServer mockServer) throws IOException {
-        HttpResponse httpResponse = Request.Get(mockServer.getUrl() + "/weather/status").execute().returnResponse();
+        HttpResponse httpResponse = Request.Get(mockServer.getUrl() + "/weather").execute().returnResponse();
         assertThat(httpResponse.getStatusLine().getStatusCode()).isEqualTo(404);
         assertThat(IOUtils.toString(httpResponse.getEntity().getContent())).contains("No weather available");
     }

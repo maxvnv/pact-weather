@@ -30,15 +30,13 @@
                 <configuration>
                     <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
                     <tags>
-                        <tag>master</tag>
-                        <tag>customtag</tag>
+<!--                        <tag>master</tag>-->
+                        <tag>development</tag>
                     </tags>
                     <pactDirectory>${project.build.directory}/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
 <!--                    <projectVersion>1.0.100</projectVersion> &lt;!&ndash; Defaults to ${project.version} &ndash;&gt;-->
                     <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
                     <skipPactPublish>false</skipPactPublish> <!-- Defaults to false -->
-                    <!--            <pactBrokerUsername>USERNAME</pactBrokerUsername>-->
-                    <!--            <pactBrokerPassword>PASSWORD</pactBrokerPassword>-->
                 </configuration>
             </plugin>
         </plugins>

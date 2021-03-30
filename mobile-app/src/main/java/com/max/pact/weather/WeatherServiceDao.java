@@ -13,7 +13,7 @@ public class WeatherServiceDao extends RestClient {
     }
 
     WeatherDto getWeather() {
-        return getFor("/weather/status", WeatherDto.class);
+        return getFor("/weather", WeatherDto.class);
     }
 
     private String getWeatherServiceUrl() {

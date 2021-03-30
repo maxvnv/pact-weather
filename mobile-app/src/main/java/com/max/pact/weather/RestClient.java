@@ -12,11 +12,15 @@ public abstract class RestClient {
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
+    private MyValidator validator;
+    @Autowired
     private UrlOverride urlOverride;
 
     public <T> T getFor(String urlPath, Class<T> clazz) {
-        return restTemplate.getForEntity(format("%s%s", urlOverride.override(getUrl()), urlPath), clazz)
+        T response = restTemplate.getForEntity(format("%s%s", urlOverride.override(getUrl()), urlPath), clazz)
                 .getBody();
+        validator.validateObject(response);
+        return response;
     }
 
     abstract String getUrl();

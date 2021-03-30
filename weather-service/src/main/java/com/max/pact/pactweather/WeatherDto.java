@@ -1,14 +1,28 @@
 package com.max.pact.pactweather;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Builder;
 import lombok.Value;
 
-@Value
-public class WeatherDto {
-    String status;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
-    @JsonCreator
-    public WeatherDto(String status) {
-        this.status = status;
-    }
+@Value
+@Builder
+public class WeatherDto {
+
+    @NotNull
+    Integer temperature;
+    @NotNull
+    @Min(87)
+    @Max(109)
+    Double airPressure;
+    @NotNull
+    @Min(0)
+    @Max(100)
+    Double humidity;
+    @NotNull
+    Wind wind;
+    @NotNull
+    Boolean isSafe;
 }

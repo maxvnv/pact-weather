@@ -1,5 +1,6 @@
 package com.max.pact.pactweather;
 
+import com.google.common.annotations.VisibleForTesting;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ public class WeatherService {
                 .orElseThrow(WeatherUnavailableException::new);
     }
 
+    @VisibleForTesting
     public void postWeather(LocalDate date, WeatherDto weather) {
         weatherByDate.put(date, weather);
     }
